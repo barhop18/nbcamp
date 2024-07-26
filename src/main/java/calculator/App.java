@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,10 +8,10 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        float[] arr = new float[10];
-        int indexNum = 0;
+        ArrayList<Float> arr = new ArrayList<Float>();
+        boolean flag = true;
 
-        while(true){
+        while(flag){
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt();
             System.out.print("두 번째 숫자를 입력하세요: ");
@@ -42,25 +43,30 @@ public class App {
                     continue;
             }
             System.out.println("결과: " + result);
+            arr.add(result);
 
-            if (indexNum <10){
-                arr[indexNum] = result;
-                indexNum++;
-            }
-            else{
-                for(int i = 0; i < 9; i++){
-                    arr[i] = arr[i+1];
+            while(true){
+                System.out.println("더 계산하시겠습니까? (exit 입력 시 종료, remove 입력시 0번째 index 삭제, inquiry 입력시 출력)");
+                String input = sc.nextLine();
+                if(input.equals("exit")){
+                    flag = false;
+                    break;
                 }
-                arr[9] = result;
+                else if(input.equals("remove")){
+                    arr.remove(0);
+                }
+                else if(input.equals("inquiry")){
+                    System.out.println("arr: ");
+                    for(Float num : arr){
+                        System.out.println(num);
+                    }
+                }
+                else{
+                    break;
+                }
             }
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String input = sc.nextLine();
-            if(input.equals("exit")){
-                break;
-            }
         }
 
-        System.out.println(Arrays.toString(arr));
     }
 }
