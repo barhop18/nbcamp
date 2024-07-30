@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -38,11 +37,7 @@ public class App {
                     calculator.removeResult();  // 가장 먼저 저장된 결과를 삭제
                     System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
                 } else if (input.equals("inquiry")) {
-                    List<Double> results = calculator.getResults();
-                    System.out.println("결과 리스트: ");
-                    for (Double num : results) {
-                        System.out.println(num);
-                    }
+                    calculator.inquiryResults();  // 저장된 결과를 조회
                 } else {
                     break;
                 }

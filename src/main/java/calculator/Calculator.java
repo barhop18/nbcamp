@@ -61,4 +61,16 @@ public class Calculator {
             System.out.println("삭제할 결과가 없습니다.");
         }
     }
+
+    // 저장된 결과를 조회하는 메서드
+    public void inquiryResults() {
+        if (results.isEmpty()) {
+            System.out.println("조회할 결과가 없습니다.");
+        } else {
+            System.out.println("결과 리스트: ");
+            for (Double num : results) {
+                System.out.println(num);
+            }
+        }
+    }
 }
