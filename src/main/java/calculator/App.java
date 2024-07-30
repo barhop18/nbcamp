@@ -35,14 +35,8 @@ public class App {
                     flag = false;
                     break;
                 } else if (input.equals("remove")) {
-                    List<Double> results = calculator.getResults();
-                    if (!results.isEmpty()) {
-                        results.remove(0);  // Remove from the returned list copy
-                        calculator.setResults(results);  // Update the Calculator's results
-                        System.out.println("0번째 index가 삭제되었습니다.");
-                    } else {
-                        System.out.println("삭제할 결과가 없습니다.");
-                    }
+                    calculator.removeResult();  // 가장 먼저 저장된 결과를 삭제
+                    System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
                 } else if (input.equals("inquiry")) {
                     List<Double> results = calculator.getResults();
                     System.out.println("결과 리스트: ");

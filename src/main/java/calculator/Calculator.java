@@ -46,10 +46,19 @@ public class Calculator {
         return new ArrayList<>(results);  // List의 복사본을 반환하여 외부에서 수정할 수 없도록 함
     }
 
-    // Setter 메서드: 연산 결과를 직접 수정할 수 있는 메서드 (조건에 따라 필요할 수 있음)
+    // Setter 메서드: 연산 결과를 직접 수정할 수 있는 메서드
     public void setResults(List<Double> results) {
         if (results != null) {
             this.results = new ArrayList<>(results);  // 리스트 복사본으로 설정하여 직접 수정 방지
+        }
+    }
+
+    // 가장 먼저 저장된 결과를 삭제하는 메서드
+    public void removeResult() {
+        if (!results.isEmpty()) {
+            results.remove(0);  // 리스트의 첫 번째 요소를 삭제
+        } else {
+            System.out.println("삭제할 결과가 없습니다.");
         }
     }
 }
